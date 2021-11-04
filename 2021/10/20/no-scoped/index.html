@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/checker.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/checker-32x32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/checker-16x16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhouyuyuyuu.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="事情源于测试早上给提的一个bug，bug是这样的：在一个表单里，新添加的一个inputA输入框明显比其他输入框长出一截（内心：改个长度的事，小问题😁 ）但我在本地运行环境反复确认，本地运行打开的页面，表单中所有的输入框长度都一致，而且左右都是对齐的，即使输入超长的内容，输入框长度依然不会改变。但测试环境上查看这个表单，的的确确inputA输入框长出一截。ps: 文中的应用是使用vue全家桶搭建的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个样式bug - 写在组件中的全局样式">
+<meta property="og:url" content="https://zhouyuyuyuu.github.io/2021/10/20/no-scoped/index.html">
+<meta property="og:site_name" content="yuu&#39;s Blog">
+<meta property="og:description" content="事情源于测试早上给提的一个bug，bug是这样的：在一个表单里，新添加的一个inputA输入框明显比其他输入框长出一截（内心：改个长度的事，小问题😁 ）但我在本地运行环境反复确认，本地运行打开的页面，表单中所有的输入框长度都一致，而且左右都是对齐的，即使输入超长的内容，输入框长度依然不会改变。但测试环境上查看这个表单，的的确确inputA输入框长出一截。ps: 文中的应用是使用vue全家桶搭建的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhouyuyuyuu.github.io/images/meme/not-simple.jpeg">
+<meta property="article:published_time" content="2021-10-20T10:12:25.000Z">
+<meta property="article:modified_time" content="2021-11-03T12:03:28.649Z">
+<meta property="article:author" content="zhouyuyuyuu">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhouyuyuyuu.github.io/images/meme/not-simple.jpeg">
+
+
+<link rel="canonical" href="https://zhouyuyuyuu.github.io/2021/10/20/no-scoped/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhouyuyuyuu.github.io/2021/10/20/no-scoped/","path":"2021/10/20/no-scoped/","title":"一个样式bug - 写在组件中的全局样式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一个样式bug - 写在组件中的全局样式 | yuu's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">yuu's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-踩坑记录"><a href="/categories/daily-record/" rel="section"><i class="fa fa-bath fa-fw"></i>踩坑记录</a></li>
+        <li class="menu-item menu-item-如有疑问请看原文的翻译-🌝"><a href="/categories/translation/" rel="section"><i class="fa fa-volume-off fa-fw"></i>如有疑问请看原文的翻译 🌝</a></li>
+        <li class="menu-item menu-item-杂记"><a href="/categories/other/" rel="section"><i class="fa fa-bed fa-fw"></i>杂记</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-文章"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章</a></li>
+        <li class="menu-item menu-item-联系我"><a href="/about/" rel="section"><i class="fa fa-comments fa-fw"></i>联系我</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%BD%8D%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">定位问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E5%A4%8D%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">修复问题</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhouyuyuyuu"
+      src="/images/eeeem.jpeg">
+  <p class="site-author-name" itemprop="name">zhouyuyuyuu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:izhouyi7@gmail.com" title="E-Mail → mailto:izhouyi7@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhouyuyuyuu.github.io/2021/10/20/no-scoped/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/eeeem.jpeg">
+      <meta itemprop="name" content="zhouyuyuyuu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个样式bug - 写在组件中的全局样式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-20 18:12:25" itemprop="dateCreated datePublished" datetime="2021-10-20T18:12:25+08:00">2021-10-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-03 20:03:28" itemprop="dateModified" datetime="2021-11-03T20:03:28+08:00">2021-11-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/daily-record/" itemprop="url" rel="index"><span itemprop="name">踩坑记录</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>事情源于测试早上给提的一个bug，bug是这样的：在一个表单里，新添加的一个inputA输入框明显比其他输入框长出一截（内心：改个长度的事，小问题😁 ）<br>但我在本地运行环境反复确认，本地运行打开的页面，表单中所有的输入框长度<strong>都一致</strong>，而且左右都是对齐的，即使输入超长的内容，输入框长度依然不会改变。但测试环境上查看这个表单，的的确确inputA输入框长出一截。<br>ps: 文中的应用是使用vue全家桶搭建的单页应用</p>
+<p><img src="/images/meme/not-simple.jpeg" alt="avatar" title="事情并不简单"></p>
+<h4 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h4><p>本地运行页面与打包部署后的测试环境页面表现不同，猜测是开发模式与生产模式打包策略不同引起。既然是样式的问题，直接查看样式当然来的最直观。分别检查样式后发现：</p>
+<ul>
+<li>本地与测试环境inputA输入框都<strong>单独固定</strong>设置了<code>600px</code>的宽度；</li>
+<li>本地运行环境页面：样式中存在<strong>三个</strong>相同的选择器<code>.custom-input .el-input__inner</code>，分别设置了宽度<code>400px</code>、<code>500px</code>、<code>600px</code>，该选择器应用到表单中所有的输入框。长度为<code>600px</code>的样式被采用，<code>400px</code>及<code>500px</code>被覆盖，此时输入框长度都是<code>600px</code>。表现为所有输入框长度一致，且左右均对齐;</li>
+<li>测试环境页面：只存在<strong>一个</strong>选择器<code>.custom-input .el-input__inner</code>，设置了所有输入框的宽度，宽度值为<code>400px</code>；此时inputA输入框宽度为<code>600px</code>，其它输入框宽度为<code>400px</code>。表现为inputA输入框长出一截；</li>
+</ul>
+<p>所以本地环境跟测试环境表现不同的原因是<strong>本地环境出现了样式覆盖</strong>。</p>
+<h4 id="修复问题"><a href="#修复问题" class="headerlink" title="修复问题"></a>修复问题</h4><p>回到代码里全局搜一番选择器<code>.custom-input .el-input__inner</code>，发现在<strong>三个不同的</strong>表单组件里，分别<strong>全局</strong>设置了选择器<code>.custom-input .el-input__inner</code>样式，宽度分别为<code>400px</code>、<code>500px</code>、<code>600px</code>。</p>
+<p>ps: 组件中直接放在<code>&lt;style&gt;&lt;/style&gt;</code>中的样式为全局样式，放在<code>&lt;style scoped&gt;&lt;/style&gt;</code>中的样式为本地样式，像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">/* 全局样式 */</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">/* 本地样式 */</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>猜测在<strong>开发模式</strong>下运行时，应用中的<strong>所有文件一次性加载</strong>，所以三个全局<code>.custom-input .el-input__inner</code><strong>同时</strong>被应用，并且其中两个被第三个覆盖；而测试环境也就是<strong>生产模式</strong>下运行时，每初次访问一个页面才去加载页面对应的样式文件与js文件，因此<strong>刷新后首次访问</strong>的页面的表单样式会是当前表单组件中的全局<code>.custom-input .el-input__inner</code>样式，若此时再访问另一个表单所在的页面，则前一个页面中的表单样式会被后续表单样式覆盖！</p>
+<p>尝试在测试环境中按照不同顺序访问这三个不同的表单组件所在的页面（每个页面只有一个表单组件），表现跟预期一致。每初次打开一个不同的表单页面，全局样式中就会多出一个<code>.custom-input .el-input__inner</code>样式，并且覆盖之前的全局<code>.custom-input .el-input__inner</code>样式。</p>
+<p>至此，<code>.custom-input .el-input__inner</code>这三个全局样式其实并非需要应用到全局，修改方式自然是将全局样式调整为本地样式。</p>
+<p>不过，在此之前虽然知道存在<code>全局样式</code>跟<code>本地样式</code>，但日常工作里的<code>全局样式</code>基本写在全局的样式表中，对于写在组件里的全局样式了解的少，这个遗留bug反倒给我上了一课。从这个bug中可以看出，如果组件并没有被打包到公共模块，比如打包在某个页面模块中，那么只有这个页面被打开，页面模块被加载，组件中的全局样式才添加到全局。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+              <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/15/hexo-command/" rel="prev" title="hexo写博客的一些命令">
+                  <i class="fa fa-chevron-left"></i> hexo写博客的一些命令
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/11/04/perfect-square/" rel="next" title="leetcode - 367. 有效的完全平方数">
+                  leetcode - 367. 有效的完全平方数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhouyuyuyuu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

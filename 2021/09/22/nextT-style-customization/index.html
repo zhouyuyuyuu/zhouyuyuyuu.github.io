@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/checker.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/checker-32x32.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/checker-16x16.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhouyuyuyuu.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="本文通过修改_config.next.yml文件中的配置项，来配置NexT主题的样式。如果不是使用_config.next.yml，下面的方法不一定有效。顺便一提，_config.next.yml是配置NexT主题的其中一种方式，适用于Hexo 5.0及其后的hexo版本。如果你想了解_config.next.yml从何而来，可以参考NexT主题 Configuration文档。 设置NexT主题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置NexT主题样式">
+<meta property="og:url" content="https://zhouyuyuyuu.github.io/2021/09/22/nextT-style-customization/index.html">
+<meta property="og:site_name" content="yuu&#39;s Blog">
+<meta property="og:description" content="本文通过修改_config.next.yml文件中的配置项，来配置NexT主题的样式。如果不是使用_config.next.yml，下面的方法不一定有效。顺便一提，_config.next.yml是配置NexT主题的其中一种方式，适用于Hexo 5.0及其后的hexo版本。如果你想了解_config.next.yml从何而来，可以参考NexT主题 Configuration文档。 设置NexT主题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-22T09:49:01.000Z">
+<meta property="article:modified_time" content="2021-11-03T08:41:29.053Z">
+<meta property="article:author" content="zhouyuyuyuu">
+<meta property="article:tag" content="hexo-NexT">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhouyuyuyuu.github.io/2021/09/22/nextT-style-customization/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhouyuyuyuu.github.io/2021/09/22/nextT-style-customization/","path":"2021/09/22/nextT-style-customization/","title":"配置NexT主题样式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>配置NexT主题样式 | yuu's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">yuu's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-踩坑记录"><a href="/categories/daily-record/" rel="section"><i class="fa fa-bath fa-fw"></i>踩坑记录</a></li>
+        <li class="menu-item menu-item-如有疑问请看原文的翻译-🌝"><a href="/categories/translation/" rel="section"><i class="fa fa-volume-off fa-fw"></i>如有疑问请看原文的翻译 🌝</a></li>
+        <li class="menu-item menu-item-杂记"><a href="/categories/other/" rel="section"><i class="fa fa-bed fa-fw"></i>杂记</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-文章"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章</a></li>
+        <li class="menu-item menu-item-联系我"><a href="/about/" rel="section"><i class="fa fa-comments fa-fw"></i>联系我</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AENexT%E4%B8%BB%E9%A2%98%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.</span> <span class="nav-text">设置NexT主题字体大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AENexT%E4%B8%BB%E9%A2%98%E9%93%BE%E6%8E%A5%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">设置NexT主题链接样式</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhouyuyuyuu"
+      src="/images/eeeem.jpeg">
+  <p class="site-author-name" itemprop="name">zhouyuyuyuu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:izhouyi7@gmail.com" title="E-Mail → mailto:izhouyi7@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhouyuyuyuu.github.io/2021/09/22/nextT-style-customization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/eeeem.jpeg">
+      <meta itemprop="name" content="zhouyuyuyuu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yuu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          配置NexT主题样式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-22 17:49:01" itemprop="dateCreated datePublished" datetime="2021-09-22T17:49:01+08:00">2021-09-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-03 16:41:29" itemprop="dateModified" datetime="2021-11-03T16:41:29+08:00">2021-11-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">杂记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本文通过修改_config.next.yml文件中的配置项，来配置NexT主题的样式。如果不是使用_config.next.yml，下面的方法不一定有效。<br>顺便一提，_config.next.yml是配置NexT主题的其中一种方式，适用于Hexo 5.0及其后的hexo版本。如果你想了解_config.next.yml从何而来，可以参考<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/configuration.html?highlight=config.next">NexT主题 Configuration文档</a>。</p>
+<h4 id="设置NexT主题字体大小"><a href="#设置NexT主题字体大小" class="headerlink" title="设置NexT主题字体大小"></a>设置NexT主题字体大小</h4><p>开始写第一篇博客时发现NexT主题post内容的字体有点大，我怎么看都希望字体能小一点。于是在_config.next.yml中盲搜font，还真有。在修改了_config.next.yml以下配置并重新运行<code>hexo server</code>后，发现这个配置并没有起效。<del>白高兴一场🙃</del></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">font:</span><br><span class="line">  enable: true</span><br><span class="line"></span><br><span class="line">  # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).</span><br><span class="line">  host:</span><br><span class="line"></span><br><span class="line">  # Font options:</span><br><span class="line">  # `external: true` will load this font family from `host` above.</span><br><span class="line">  # `family: Times New Roman`. Without any quotes.</span><br><span class="line">  # `size: x.x`. Use `em` as unit. Default: 1 (16px)</span><br><span class="line"></span><br><span class="line">  # Global font settings used for all elements inside &lt;body&gt;.</span><br><span class="line">  global:</span><br><span class="line">    external: true</span><br><span class="line">    family: Monda</span><br><span class="line">    size: 1.125</span><br><span class="line"></span><br><span class="line">  # Font settings for site title (.site-title).</span><br><span class="line">  title:</span><br><span class="line">    external: true</span><br><span class="line">    family:</span><br><span class="line">    size:</span><br><span class="line"></span><br><span class="line">  # Font settings for headlines (&lt;h1&gt; to &lt;h6&gt;).</span><br><span class="line">  headings:</span><br><span class="line">    external: true</span><br><span class="line">    family:</span><br><span class="line">    size:</span><br><span class="line"></span><br><span class="line">  # Font settings for posts (.post-body).</span><br><span class="line">  posts:</span><br><span class="line">    external: true</span><br><span class="line">    family:</span><br><span class="line">    size: 0.875</span><br><span class="line"></span><br><span class="line">  # Font settings for &lt;code&gt; and code blocks.</span><br><span class="line">  codes:</span><br><span class="line">    external: true</span><br><span class="line">    family:</span><br><span class="line">    size: 0.875</span><br></pre></td></tr></table></figure>
+<p><font color=red>上述配置并无效果！！！</font><br>在NexT主题文档中搜索font后，找到了<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/miscellaneous.html">Fonts Customization</a>模块（文档里的第10点）。Fonts Customization开始提到的就是我前边尝试无效的配置方式（如果你知道怎么让这配置起效，欢迎<a href="mailto:izhouyi7@gmail.com">告知我</a>），不过后续又提到了另一种配置方式 ———— 通过<code>source/_data/variables.styl</code>来进行配置。<br>步骤可以归结为：</p>
+<ol>
+<li>在博客根目录下的source目录新建一个<code>_data</code>文件夹，如果你已经有_data文件夹了则不用新建;</li>
+<li>在_data文件夹下新建<code>variables.styl</code>文件，如果你已经有variables.styl文件了则不用新建;</li>
+<li>在variables.styl文件中设置css变量的值，如文章的字体大小<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Font size of articles.</span><br><span class="line">$font-size-base = 16px</span><br></pre></td></tr></table></figure></li>
+<li>去<code>_config.next.yml</code>文件找到<code>custom_file_path</code>，并给<code>custom_file_path</code>模块下的<code>variable</code>解开注释</li>
+</ol>
+<p>保存修改并再次hexo server时，就看到文章的字变小啦。但是，侧边的导航栏字号变得更小了⁉️<br>在页面检查样式，再去node_modules/hexo-theme-next/source/css中搜寻一番后发现，侧边栏的字号是变量<code>$font-size-smaller</code>。于是在<code>source/_data/variables.styl</code>中配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Font size of articles.</span><br><span class="line">$font-size-base = 14px</span><br><span class="line">$font-size-smaller = 14px</span><br></pre></td></tr></table></figure>
+<p>此时，侧边栏文字的字号与配置前保持一致，为14px；文章内容字号由配置前的16px(1em)，调整为配置后的14px；<br>文章内容的字号就这样变小啦😁。</p>
+<h4 id="设置NexT主题链接样式"><a href="#设置NexT主题链接样式" class="headerlink" title="设置NexT主题链接样式"></a>设置NexT主题链接样式</h4><p><code>NexT主题</code>链接默认的样式是 <strong>与正文字体一样的墨色</strong> + <strong>下划线</strong>，连加粗都没有，很容易把链接错看成普通文字，因此想调整链接的颜色，来突出链接。<br>首先想到的方法是在<code>source/_data/variables.styl</code>中配置链接使用的颜色变量，来达到改变链接颜色的目的（如果你没有_data目录或者variables.styl文件，则创建它；记得去<code>_config.next.yml</code>文件给<code>custom_file_path</code>模块下的<code>variable</code>解开注释）。<br>在页面检查元素后，发现链接颜色设置是<code>color: var(--link-color)</code>，用了一个叫<code>--link-color</code>的css变量。于是再去node_modules/hexo-theme-next/source/css中搜寻一番，发现<code>_colors.styl</code>中配置了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--link-color: $link-color;</span><br><span class="line">--link-hover-color: $link-hover-color;</span><br></pre></td></tr></table></figure>
+<p>于是我开开心心的去<code>source/_data/variables.styl</code>中设置了<code>$link-color</code>跟<code>$link-hover-color</code>的颜色：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$link-color = pink</span><br><span class="line">$link-hover-color = yellow</span><br></pre></td></tr></table></figure>
+<p>保存修改，重新运行hexo server后，看到我的博客所有的链接都变成了粉色，<strong>包括侧边栏！</strong>而我只是希望文章内容中的链接能够突出。<br>此时，想起在<code>_config.next.yml</code>文件的<code>custom_file_path</code>模块下还有一个被注释了的叫<code>style</code>的项。像配置<code>variables.styl</code>文件一样，在<code>source/_data/</code>目录下新建一个<code>styles.styl</code>文件，如果你已经有styles.styl文件了则不用新建；然后在styles.styl文件中加入以下样式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.post-body &#123;</span><br><span class="line">    a:not(.btn) &#123;</span><br><span class="line">        color: dodgerblue;</span><br><span class="line">        border-bottom: none;</span><br><span class="line">        &amp;:hover &#123;</span><br><span class="line">            color: RoyalBlue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并且去除<code>variables.styl</code>中<code>$link-color</code>跟<code>$link-hover-color</code>的设置。再次运行hexo server；侧边栏的链接样式不变，文章内容中的链接颜色变成dodgerblue了😁</p>
+<p>参考： <a target="_blank" rel="noopener" href="https://vonsdite.github.io/posts/13afd8d4.html">https://vonsdite.github.io/posts/13afd8d4.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo-NexT/" rel="tag"><i class="fa fa-tag"></i> hexo-NexT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/22/excludeChunks/" rel="prev" title="excludeChunks - 搞不懂的webpack">
+                  <i class="fa fa-chevron-left"></i> excludeChunks - 搞不懂的webpack
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/15/reg-quantifier/" rel="next" title="正则表达式中的*?以及修饰符m">
+                  正则表达式中的*?以及修饰符m <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhouyuyuyuu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
