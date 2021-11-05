@@ -375,7 +375,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/15/hexo-command/" class="post-title-link" itemprop="url">hexo写博客的一些命令</a>
+          <a href="/2021/10/15/hexo-command/" class="post-title-link" itemprop="url">hexo写博客的一些命令与插入图片、公式的方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -393,7 +393,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-03 16:41:29" itemprop="dateModified" datetime="2021-11-03T16:41:29+08:00">2021-11-03</time>
+        <time title="修改时间：2021-11-04 18:50:29" itemprop="dateModified" datetime="2021-11-04T18:50:29+08:00">2021-11-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -426,6 +426,17 @@
 <p>如果菜单跳转路径并不是博客中原本已有的路径，那这时还需要新建一个页面：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/index &quot;About me&quot;</span><br></pre></td></tr></table></figure>
 <p>这个命令语法是：<code>hexo new [layout] &lt;title&gt;</code>。其中<code>[layout]</code>无特殊要求的话都可以直接使用<code>page</code>。<code>hexo new page --path about/index &quot;About me&quot;</code>中<code>--path</code>后面跟的<code>about/index</code>指的就是页面的路径，可以与上面菜单路径配置的<code>/about/</code>匹配上，<code>&quot;About me&quot;</code>指的是页面标题，此时<strong>必须要填写页面标题</strong>，否则新建的不是页面，而会是一篇标题为“page”的默认layout的新博客。<br>新建的页面文件可以在<code>source</code>目录下根据配置的路径找到，此例的路径即为<code>source/about/index.md</code>。编辑<code>source/about/index.md</code>的内容，会体现在新页面上。</p>
+<h4 id="在NexT主题下给博客内容添加数学公式"><a href="#在NexT主题下给博客内容添加数学公式" class="headerlink" title="在NexT主题下给博客内容添加数学公式"></a>在NexT主题下给博客内容添加数学公式</h4><p>第一步：首先需要在<code>_config.next.yml</code>文件中搜索找到<code>mathjax</code>，并将<code>mathjax</code>的<code>enable</code>改为<code>true</code>。像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">every_page: false</span><br><span class="line"></span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  # Available values: none | ams | all</span><br><span class="line">  tags: none</span><br></pre></td></tr></table></figure>
+<p>第二步：然后需要安装MathJax 引擎，像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure>
+<p>第三步：最后在具体的某篇博客也就是<code>md文件</code>中的开头加入<code>mathjax: true</code>，像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: leetcode - 367. 有效的完全平方数</span><br><span class="line">date: 2021-11-04 11:49:04</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>经过以上三步的配置，就可以在当前博客文章中编写公式啦！</p>
+<ul>
+<li>行内公式：\$数学公式\$，例如： md文档中编写\$a \over b\$，页面上会显示$a \over b$</li>
+<li>独立公式：\$\$数学公式\$\$，例如： md文档中编写\$\$a \over b\$\$，页面上会显示$$a \over b$$</li>
+</ul>
 <h4 id="给博客添加图片"><a href="#给博客添加图片" class="headerlink" title="给博客添加图片"></a>给博客添加图片</h4><p>下载的图片可以放在<code>source/images/</code>目录下，也可以在<code>source/images/</code>目录下新建目录存放。在博客中可以通过形如<code>![我的图片](/images/myDir/xxx.jpeg)</code>的方式来引入图片。</p>
 <h4 id="给博客文章添加分类或标签"><a href="#给博客文章添加分类或标签" class="headerlink" title="给博客文章添加分类或标签"></a>给博客文章添加分类或标签</h4><p>分类与标签一般在新建博客时<code>[layout]</code>模板中会带有。一般放在博客文件的开头，也就是<code>.md</code>文件的开头，形如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 标题 // 博客标题</span><br><span class="line">date: 2021-10-15 18:27:23 // 创建时间</span><br><span class="line">tags: [hexo-NexT] // 标签</span><br><span class="line">categories: // 分类</span><br><span class="line">- 杂记</span><br></pre></td></tr></table></figure>

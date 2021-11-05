@@ -21,13 +21,13 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhouyuyuyuu.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 <meta name="description" content="记录一些hexo命令，免得下次想起写博客的时候忘记操作。 新建一篇文章以新建一篇名为hexo-command的文章为例。语法： hexo new &lt;模板&gt; &lt;文章名&gt;， 示例： 1hexo new post hexo-command 一般没有使用特殊模板的话都可以用hexo new post &lt;文章名&gt;来创建一篇文章，创建的文件可以在source&#x2F;_posts&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo写博客的一些命令">
+<meta property="og:title" content="hexo写博客的一些命令与插入图片、公式的方法">
 <meta property="og:url" content="https://zhouyuyuyuu.github.io/2021/10/15/hexo-command/index.html">
 <meta property="og:site_name" content="yuu&#39;s Blog">
 <meta property="og:description" content="记录一些hexo命令，免得下次想起写博客的时候忘记操作。 新建一篇文章以新建一篇名为hexo-command的文章为例。语法： hexo new &lt;模板&gt; &lt;文章名&gt;， 示例： 1hexo new post hexo-command 一般没有使用特殊模板的话都可以用hexo new post &lt;文章名&gt;来创建一篇文章，创建的文件可以在source&#x2F;_posts&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-15T10:27:23.000Z">
-<meta property="article:modified_time" content="2021-11-03T08:41:29.053Z">
+<meta property="article:modified_time" content="2021-11-04T10:50:29.954Z">
 <meta property="article:author" content="zhouyuyuyuu">
 <meta property="article:tag" content="hexo-NexT">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhouyuyuyuu.github.io/2021/10/15/hexo-command/","path":"2021/10/15/hexo-command/","title":"hexo写博客的一些命令"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhouyuyuyuu.github.io/2021/10/15/hexo-command/","path":"2021/10/15/hexo-command/","title":"hexo写博客的一些命令与插入图片、公式的方法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>hexo写博客的一些命令 | yuu's Blog</title>
+<title>hexo写博客的一些命令与插入图片、公式的方法 | yuu's Blog</title>
   
 
 
@@ -121,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">新建一篇文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AANexT%E8%8F%9C%E5%8D%95%E9%A1%B9"><span class="nav-number">2.</span> <span class="nav-text">新增一个NexT菜单项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87"><span class="nav-number">3.</span> <span class="nav-text">给博客添加图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E6%88%96%E6%A0%87%E7%AD%BE"><span class="nav-number">4.</span> <span class="nav-text">给博客文章添加分类或标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9F%A5%E7%9C%8B%E5%8D%9A%E5%AE%A2%E6%95%88%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">在本地查看博客效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%BA%BF%E4%B8%8A%E5%8D%9A%E5%AE%A2"><span class="nav-number">6.</span> <span class="nav-text">更新线上博客</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">新建一篇文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E4%B8%80%E4%B8%AANexT%E8%8F%9C%E5%8D%95%E9%A1%B9"><span class="nav-number">2.</span> <span class="nav-text">新增一个NexT菜单项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8NexT%E4%B8%BB%E9%A2%98%E4%B8%8B%E7%BB%99%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9%E6%B7%BB%E5%8A%A0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">在NexT主题下给博客内容添加数学公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87"><span class="nav-number">4.</span> <span class="nav-text">给博客添加图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E6%88%96%E6%A0%87%E7%AD%BE"><span class="nav-number">5.</span> <span class="nav-text">给博客文章添加分类或标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%9F%A5%E7%9C%8B%E5%8D%9A%E5%AE%A2%E6%95%88%E6%9E%9C"><span class="nav-number">6.</span> <span class="nav-text">在本地查看博客效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E7%BA%BF%E4%B8%8A%E5%8D%9A%E5%AE%A2"><span class="nav-number">7.</span> <span class="nav-text">更新线上博客</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hexo写博客的一些命令
+          hexo写博客的一些命令与插入图片、公式的方法
         </h1>
 
         <div class="post-meta-container">
@@ -204,7 +204,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-03 16:41:29" itemprop="dateModified" datetime="2021-11-03T16:41:29+08:00">2021-11-03</time>
+        <time title="修改时间：2021-11-04 18:50:29" itemprop="dateModified" datetime="2021-11-04T18:50:29+08:00">2021-11-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,6 +237,17 @@
 <p>如果菜单跳转路径并不是博客中原本已有的路径，那这时还需要新建一个页面：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page --path about/index &quot;About me&quot;</span><br></pre></td></tr></table></figure>
 <p>这个命令语法是：<code>hexo new [layout] &lt;title&gt;</code>。其中<code>[layout]</code>无特殊要求的话都可以直接使用<code>page</code>。<code>hexo new page --path about/index &quot;About me&quot;</code>中<code>--path</code>后面跟的<code>about/index</code>指的就是页面的路径，可以与上面菜单路径配置的<code>/about/</code>匹配上，<code>&quot;About me&quot;</code>指的是页面标题，此时<strong>必须要填写页面标题</strong>，否则新建的不是页面，而会是一篇标题为“page”的默认layout的新博客。<br>新建的页面文件可以在<code>source</code>目录下根据配置的路径找到，此例的路径即为<code>source/about/index.md</code>。编辑<code>source/about/index.md</code>的内容，会体现在新页面上。</p>
+<h4 id="在NexT主题下给博客内容添加数学公式"><a href="#在NexT主题下给博客内容添加数学公式" class="headerlink" title="在NexT主题下给博客内容添加数学公式"></a>在NexT主题下给博客内容添加数学公式</h4><p>第一步：首先需要在<code>_config.next.yml</code>文件中搜索找到<code>mathjax</code>，并将<code>mathjax</code>的<code>enable</code>改为<code>true</code>。像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">every_page: false</span><br><span class="line"></span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  # Available values: none | ams | all</span><br><span class="line">  tags: none</span><br></pre></td></tr></table></figure>
+<p>第二步：然后需要安装MathJax 引擎，像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure>
+<p>第三步：最后在具体的某篇博客也就是<code>md文件</code>中的开头加入<code>mathjax: true</code>，像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: leetcode - 367. 有效的完全平方数</span><br><span class="line">date: 2021-11-04 11:49:04</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>经过以上三步的配置，就可以在当前博客文章中编写公式啦！</p>
+<ul>
+<li>行内公式：\$数学公式\$，例如： md文档中编写\$a \over b\$，页面上会显示$a \over b$</li>
+<li>独立公式：\$\$数学公式\$\$，例如： md文档中编写\$\$a \over b\$\$，页面上会显示$$a \over b$$</li>
+</ul>
 <h4 id="给博客添加图片"><a href="#给博客添加图片" class="headerlink" title="给博客添加图片"></a>给博客添加图片</h4><p>下载的图片可以放在<code>source/images/</code>目录下，也可以在<code>source/images/</code>目录下新建目录存放。在博客中可以通过形如<code>![我的图片](/images/myDir/xxx.jpeg)</code>的方式来引入图片。</p>
 <h4 id="给博客文章添加分类或标签"><a href="#给博客文章添加分类或标签" class="headerlink" title="给博客文章添加分类或标签"></a>给博客文章添加分类或标签</h4><p>分类与标签一般在新建博客时<code>[layout]</code>模板中会带有。一般放在博客文件的开头，也就是<code>.md</code>文件的开头，形如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">title: 标题 // 博客标题</span><br><span class="line">date: 2021-10-15 18:27:23 // 创建时间</span><br><span class="line">tags: [hexo-NexT] // 标签</span><br><span class="line">categories: // 分类</span><br><span class="line">- 杂记</span><br></pre></td></tr></table></figure>
@@ -320,7 +331,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
